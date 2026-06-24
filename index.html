@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>List Canopy: every Etsy shop under one canopy</title>
+<meta name="description" content="List Canopy connects all your Etsy shops through official OAuth, then bulk-builds listings, syncs pricing and stock, and runs every shop from one control panel. Nothing publishes until you approve it." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%234F6BF6'/%3E%3Cg fill='%23ffffff'%3E%3Ccircle cx='9' cy='9' r='2.4'/%3E%3Ccircle cx='23' cy='9' r='2.4'/%3E%3Ccircle cx='9' cy='23' r='2.4'/%3E%3Ccircle cx='23' cy='23' r='2.4'/%3E%3Ccircle cx='16' cy='16' r='2.8'/%3E%3C/g%3E%3Cg stroke='%23ffffff' stroke-width='1.4' opacity='.65'%3E%3Cline x1='9' y1='9' x2='16' y2='16'/%3E%3Cline x1='23' y1='9' x2='16' y2='16'/%3E%3Cline x1='9' y1='23' x2='16' y2='16'/%3E%3Cline x1='23' y1='23' x2='16' y2='16'/%3E%3C/g%3E%3C/svg%3E" />
+<link rel="canonical" href="https://listcanopy.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="List Canopy" />
+<meta property="og:title" content="List Canopy: every Etsy shop under one canopy" />
+<meta property="og:description" content="Connect your Etsy shops through official OAuth, bulk-build listings, sync pricing and stock, and run every shop from one control panel. You approve before anything publishes." />
+<meta property="og:url" content="https://listcanopy.com/" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="List Canopy: every Etsy shop under one canopy" />
+<meta name="twitter:description" content="Bulk-build listings, sync pricing and stock, and run every Etsy shop from one control panel. You approve before anything publishes." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F6FB; --paper2:#FAFBFE; --card:#FFFFFF;
+    --ink:#131A2B; --muted:#5B6478; --line:#E2E7F0;
+    --accent:#4F6BF6; --accent-d:#3A52D8; --accent-soft:#E6ECFE;
+    --amber:#E08A3C;
+    --radius:14px; --maxw:1140px;
+    --display:'Space Grotesk',system-ui,sans-serif; --body:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',monospace;
+    --shadow:0 24px 60px -30px rgba(31,46,90,.45);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+  .eyebrow{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+  h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.02em;margin:0}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:15px;font-family:var(--body);
+    padding:13px 22px;border-radius:10px;border:1.5px solid transparent;cursor:pointer;transition:.18s;outline:none}
+  .btn:focus-visible{box-shadow:0 0 0 3px rgba(79,107,246,.35)}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{background:var(--accent-d);transform:translateY(-1px)}
+  .btn-line{background:transparent;color:var(--ink);border-color:#cdd5e4}
+  .btn-line:hover{border-color:var(--ink)}
+
+  header{position:sticky;top:0;z-index:40;background:rgba(244,246,251,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .logo{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:600;font-size:20px;letter-spacing:-.02em}
+  .mark{width:30px;height:30px;border-radius:8px;background:var(--accent);position:relative;flex:none}
+  .mark::before{content:"";position:absolute;inset:6px;border-radius:3px;
+    background:radial-gradient(circle at 30% 30%, #fff 0 2px, transparent 2px),
+               radial-gradient(circle at 70% 30%, #fff 0 2px, transparent 2px),
+               radial-gradient(circle at 30% 70%, #fff 0 2px, transparent 2px),
+               radial-gradient(circle at 70% 70%, #fff 0 2px, transparent 2px),
+               radial-gradient(circle at 50% 50%, #fff 0 2.4px, transparent 2.4px)}
+  .navlinks{display:flex;gap:30px;align-items:center}
+  .navlinks a{color:var(--muted);font-size:15px;font-weight:500}
+  .navlinks a:hover{color:var(--ink)}
+  @media(max-width:780px){.navlinks .hidemob{display:none}}
+
+  /* HERO */
+  .hero{position:relative;overflow:hidden;min-height:min(86vh,760px);display:flex;align-items:center}
+  #net{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+  .hero .wrap{position:relative;z-index:2}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center}
+  @media(max-width:880px){.hero-grid{grid-template-columns:1fr}.hero{min-height:auto;padding:60px 0 40px}}
+  .htext{padding:40px 0}
+  .htext h1{font-size:clamp(38px,6vw,64px);line-height:1.04;letter-spacing:-.03em;margin-top:18px}
+  .htext h1 em{font-style:normal;color:var(--accent)}
+  .htext .lead{font-size:clamp(17px,2.1vw,20px);color:var(--muted);margin:22px 0 0;max-width:47ch}
+  .htext .cta{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}
+  .htext .stamp{margin-top:18px;font-family:var(--mono);font-size:12.5px;color:var(--muted);letter-spacing:.02em}
+  .hspacer{height:300px}
+  @media(max-width:880px){.hspacer{display:none}}
+
+  /* signature card atop the 3D */
+  .panel{background:rgba(250,251,254,.9);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:16px;
+    box-shadow:var(--shadow);padding:18px;max-width:420px;margin-left:auto}
+  .panel .prod{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:11px;padding:12px 14px}
+  .panel .thumb{width:46px;height:46px;border-radius:9px;background:linear-gradient(135deg,var(--accent-soft),#fff);border:1px solid var(--line);flex:none;display:grid;place-items:center;color:var(--accent);font-size:20px}
+  .panel .prod .t{font-weight:600;font-size:14px}
+  .panel .prod .m{font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .fan{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+  .chip{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid var(--line);border-radius:9px;padding:10px 13px;font-size:13px}
+  .chip .nm{display:flex;align-items:center;gap:9px;font-weight:500}
+  .chip .nm i{width:7px;height:7px;border-radius:2px;background:var(--accent)}
+  .tag{font-family:var(--mono);font-size:10.5px;padding:4px 9px;border-radius:6px;font-weight:500}
+  .tag.draft{background:rgba(224,138,60,.14);color:var(--amber)}
+  .tag.live{background:var(--accent-soft);color:var(--accent-d)}
+
+  section{padding:92px 0}
+  .center{text-align:center;max-width:680px;margin:0 auto}
+  h2{font-size:clamp(28px,4vw,42px);line-height:1.1}
+  .sub{color:var(--muted);font-size:18px;margin-top:14px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:54px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  @media(max-width:860px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--paper2);padding:30px 26px}
+  .card .lab{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.08em}
+  .card h3{font-size:20px;margin:14px 0 8px}
+  .card p{margin:0;color:var(--muted);font-size:15px}
+
+  .how{background:var(--ink);color:#D7DEEC}
+  .how .eyebrow{color:#9DB0F3}
+  .how h2{color:#fff}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:54px}
+  @media(max-width:860px){.steps{grid-template-columns:1fr}}
+  .step .n{font-family:var(--mono);font-size:13px;color:#9DB0F3;border:1px solid rgba(255,255,255,.18);width:fit-content;padding:5px 11px;border-radius:7px;margin-bottom:14px}
+  .step h3{color:#fff;font-size:20px;margin-bottom:7px}
+  .step p{margin:0;color:#9aa6bd;font-size:15px}
+
+  /* product preview (mockup) */
+  .browser{margin:54px auto 0;max-width:980px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+  .bbar{display:flex;align-items:center;gap:8px;padding:13px 16px;background:var(--paper2);border-bottom:1px solid var(--line)}
+  .bbar .dot{width:11px;height:11px;border-radius:50%;background:#D2D9E6}
+  .bbar .url{margin-left:14px;font-family:var(--mono);font-size:12px;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:7px;padding:5px 12px;flex:1;max-width:320px}
+  .app{display:grid;grid-template-columns:210px 1fr;min-height:340px}
+  .side{border-right:1px solid var(--line);padding:18px 14px;background:var(--paper2)}
+  .side-h{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 6px 12px}
+  .shop{display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:8px;font-size:13.5px;font-weight:500;margin-bottom:3px}
+  .shop i{width:8px;height:8px;border-radius:2px;background:var(--accent);flex:none}
+  .shop b{margin-left:auto;font-family:var(--mono);font-size:11px;font-weight:500;color:var(--muted)}
+  .shop.active{background:var(--accent-soft);color:var(--accent-d)}
+  .side-f{margin-top:14px;padding:9px 10px;font-size:12.5px;color:var(--accent);font-weight:600}
+  .main{padding:18px 20px}
+  .main-top{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+  .main-top .search{flex:1;font-size:13px;color:var(--muted);background:var(--paper2);border:1px solid var(--line);border-radius:8px;padding:9px 13px}
+  .main-top .np{font-size:12.5px;font-weight:600;color:#fff;background:var(--accent);border-radius:8px;padding:9px 14px;white-space:nowrap}
+  .rowh,.row{display:grid;grid-template-columns:1.7fr 1.2fr .7fr .8fr;gap:10px;align-items:center;padding:11px 12px}
+  .rowh{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:0;padding-bottom:8px}
+  .row{background:var(--paper2);border:1px solid var(--line);border-radius:9px;margin-bottom:8px;font-size:13.5px}
+  .row .pn{font-weight:600}
+  .row .sh{color:var(--muted)}
+  .row .pr{font-family:var(--mono);font-size:12.5px}
+  .pill{font-family:var(--mono);font-size:10.5px;padding:4px 10px;border-radius:6px;font-weight:500;width:fit-content}
+  .pill.live{background:var(--accent-soft);color:var(--accent-d)}
+  .pill.draft{background:rgba(224,138,60,.16);color:var(--amber)}
+  .pill.sync{background:#E7EDF2;color:#3E6079}
+  @media(max-width:720px){.app{grid-template-columns:1fr}.side{display:none}.rowh,.row{grid-template-columns:1.6fr .7fr .9fr}.rowh .h-shop,.row .sh{display:none}}
+
+  .band{background:var(--accent);color:#fff;border-radius:22px;padding:60px 40px;text-align:center;position:relative;overflow:hidden}
+  .band::after{content:"";position:absolute;inset:0;opacity:.16;pointer-events:none;
+    background:radial-gradient(circle at 20% 30%, #fff 0 1.5px, transparent 1.5px) 0 0/26px 26px,
+              radial-gradient(circle at 70% 60%, #fff 0 1.5px, transparent 1.5px) 0 0/26px 26px}
+  .band>*{position:relative}
+  .band h2{color:#fff}
+  .band p{color:#dfe6ff;margin-top:12px;font-size:18px}
+  .waitlist{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:30px auto 0;max-width:500px}
+  .waitlist input{flex:1;min-width:240px;padding:14px 20px;border-radius:10px;border:1.5px solid rgba(255,255,255,.55);background:rgba(255,255,255,.12);color:#fff;font-size:15px;font-family:var(--body);outline:none;transition:.18s}
+  .waitlist input::placeholder{color:rgba(255,255,255,.72)}
+  .waitlist input:focus{border-color:#fff;background:rgba(255,255,255,.2);box-shadow:0 0 0 3px rgba(255,255,255,.2)}
+  .waitlist button{flex:none;background:#fff;color:var(--accent-d)}
+  .waitlist button:hover{background:var(--paper)}
+  .formnote{color:#dfe6ff;font-size:12.5px;margin:14px auto 0;font-family:var(--mono);letter-spacing:.01em}
+  .formdone{color:#fff;font-weight:600;font-size:18px;margin:30px auto 0;max-width:520px}
+
+  footer{padding:50px 0 60px;color:var(--muted);font-size:14px}
+  .frow{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+  .disclaimer{margin-top:26px;padding-top:22px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;line-height:1.7;color:#838da3;max-width:800px}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap"><nav>
+    <div class="logo"><span class="mark"></span> List Canopy</div>
+    <div class="navlinks">
+      <a class="hidemob" href="#features">Features</a>
+      <a class="hidemob" href="#how">How it works</a>
+      <a class="hidemob" href="#access">Early access</a>
+      <a class="btn btn-line" href="#access">Get early access</a>
+    </div>
+  </nav></div>
+</header>
+
+<section class="hero">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="wrap"><div class="hero-grid">
+    <div class="htext">
+      <span class="eyebrow">For sellers running more than one shop</span>
+      <h1>Every Etsy shop under <em>one</em> canopy.</h1>
+      <p class="lead">List Canopy links your shops through Etsy's official OAuth, then bulk-builds listings, keeps pricing and stock aligned, and runs the whole set from a single control panel. Nothing publishes until you approve it.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#access">Get early access →</a>
+        <a class="btn btn-line" href="#how">See how it works</a>
+      </div>
+      <div class="stamp">OAuth-only · drafts first, you approve · no spreadsheets</div>
+    </div>
+    <div>
+      <div class="hspacer"></div>
+      <div class="panel" aria-label="One product pushed to several shops">
+        <div class="prod">
+          <div class="thumb">▦</div>
+          <div><div class="t">Speckled Stoneware Mug</div><div class="m">1 product → 4 shops</div></div>
+        </div>
+        <div class="fan">
+          <div class="chip"><span class="nm"><i></i> Marlowe &amp; Co</span><span class="tag live">live</span></div>
+          <div class="chip"><span class="nm"><i></i> Studio Fenn</span><span class="tag draft">draft</span></div>
+          <div class="chip"><span class="nm"><i></i> North Harbour</span><span class="tag live">live</span></div>
+          <div class="chip"><span class="nm"><i></i> Wren &amp; Vale</span><span class="tag draft">draft</span></div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <div class="center"><span class="eyebrow">// the whole portfolio, connected</span>
+      <h2>Stop repeating yourself across shops</h2>
+      <p class="sub">The repetitive parts of running several Etsy shops, handled. Accurate, fast, and always under your control.</p>
+    </div>
+    <div class="grid">
+      <div class="card"><div class="lab">01 / create</div><h3>Bulk-build listings</h3><p>Add the product details once and List Canopy drafts a clean title, 13 tags, description, photos and variants in seconds.</p></div>
+      <div class="card"><div class="lab">02 / operate</div><h3>One panel, every shop</h3><p>Jump between shops instantly. See what is drafted versus live across every shop without a single re-login.</p></div>
+      <div class="card"><div class="lab">03 / sync</div><h3>Price &amp; stock alignment</h3><p>Change a value once and apply it everywhere. Keep inventory and pricing consistent across all your shops by rule.</p></div>
+      <div class="card"><div class="lab">04 / control</div><h3>Approve before live</h3><p>Nothing publishes on its own. Every change lands as a draft for you to review, then ships in a click.</p></div>
+      <div class="card"><div class="lab">05 / secure</div><h3>OAuth, nothing more</h3><p>Connect through Etsy's official OAuth. List Canopy only touches shops you authorise, with the scopes you grant.</p></div>
+      <div class="card"><div class="lab">06 / scale</div><h3>Built for portfolios</h3><p>Designed for sellers running several brand shops. The workflow grows with you instead of fighting you.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="preview">
+  <div class="wrap">
+    <div class="center"><span class="eyebrow">// a look inside</span>
+      <h2>Every shop, drafted and in sync</h2>
+      <p class="sub">One control panel for every shop you run. Draft a listing once, see what is live, push the rest when you are ready.</p>
+    </div>
+    <div class="browser" role="img" aria-label="List Canopy control panel showing listings across several shops with draft, live and syncing statuses">
+      <div class="bbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><div class="url">app.listcanopy.com/panel</div></div>
+      <div class="app">
+        <aside class="side">
+          <div class="side-h">Your shops</div>
+          <div class="shop active"><i></i> Marlowe &amp; Co <b>42</b></div>
+          <div class="shop"><i></i> Studio Fenn <b>28</b></div>
+          <div class="shop"><i></i> North Harbour <b>51</b></div>
+          <div class="shop"><i></i> Wren &amp; Vale <b>19</b></div>
+          <div class="side-f">+ Connect a shop</div>
+        </aside>
+        <main class="main">
+          <div class="main-top">
+            <div class="search">Search listings across all shops</div>
+            <div class="np">+ New listing</div>
+          </div>
+          <div class="rowh"><span>Product</span><span class="h-shop">Shop</span><span>Price</span><span>Status</span></div>
+          <div class="row"><span class="pn">Speckled Stoneware Mug</span><span class="sh">Marlowe &amp; Co</span><span class="pr">£24.00</span><span class="pill live">live</span></div>
+          <div class="row"><span class="pn">Linen Table Runner</span><span class="sh">Studio Fenn</span><span class="pr">£31.00</span><span class="pill draft">draft</span></div>
+          <div class="row"><span class="pn">Brass Plant Mister</span><span class="sh">North Harbour</span><span class="pr">£19.50</span><span class="pill sync">syncing</span></div>
+          <div class="row"><span class="pn">Ceramic Spoon Rest</span><span class="sh">Marlowe &amp; Co</span><span class="pr">£16.00</span><span class="pill live">live</span></div>
+          <div class="row"><span class="pn">Waxed Canvas Pouch</span><span class="sh">Wren &amp; Vale</span><span class="pr">£22.00</span><span class="pill draft">draft</span></div>
+        </main>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="how">
+  <div class="wrap">
+    <div class="center"><span class="eyebrow">// three steps</span><h2>Product to published, across every shop</h2></div>
+    <div class="steps">
+      <div class="step"><div class="n">step 01</div><h3>Connect</h3><p>Authorise through Etsy's official OAuth. You choose the permissions; we never see your password.</p></div>
+      <div class="step"><div class="n">step 02</div><h3>Build</h3><p>Add the product once. List Canopy drafts listings tuned for each shop you run.</p></div>
+      <div class="step"><div class="n">step 03</div><h3>Approve</h3><p>Review the drafts you like and push them live to the right shop. Sync prices, repeat.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="access">
+  <div class="wrap"><div class="band">
+    <span class="eyebrow" style="color:#dfe6ff">// early access</span>
+    <h2 style="font-size:clamp(28px,4vw,42px)">Run every shop from one panel</h2>
+    <p>We are onboarding multi-shop sellers in small batches. Drop your email and we will reach out the moment your spot opens.</p>
+    <form id="waitlist" class="waitlist" action="REPLACE_WITH_APPS_SCRIPT_URL" method="POST">
+      <input type="email" name="email" required autocomplete="email" placeholder="you@yourstudio.com" aria-label="Your email address" />
+      <button type="submit" class="btn">Request access</button>
+    </form>
+    <p class="formnote" id="formnote" aria-live="polite">Free while we are in early access. No spam, just your invite.</p>
+  </div></div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="frow">
+      <div class="logo"><span class="mark"></span> List Canopy</div>
+      <div style="display:flex;gap:24px;flex-wrap:wrap"><a href="#features">Features</a><a href="#how">How it works</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="mailto:hello@listcanopy.com">Contact</a></div>
+    </div>
+    <p style="margin-top:18px">Listing automation for Etsy sellers. © 2026 FIREHOSE.AI LTD, registered in England and Wales.</p>
+    <p class="disclaimer">The term "Etsy" is a trademark of Etsy, Inc. This application uses the Etsy API but is not endorsed or certified by Etsy, Inc. List Canopy accesses shop data only through Etsy's official OAuth with the permissions you grant, and never scrapes Etsy.</p>
+  </div>
+</footer>
+
+<script>
+  // Waitlist capture: posts to the form backend, shows an inline success state.
+  (function(){
+    var form = document.getElementById('waitlist');
+    var note = document.getElementById('formnote');
+    if(!form) return;
+    document.querySelectorAll('a[href="#access"]').forEach(function(a){
+      a.addEventListener('click', function(){ setTimeout(function(){ var i=form.querySelector('input'); if(i) i.focus(); }, 480); });
+    });
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var btn = form.querySelector('button');
+      if(form.action.indexOf('REPLACE_WITH') !== -1){
+        note.textContent = "Almost there. The waitlist isn't connected yet, email hello@listcanopy.com to be added.";
+        return;
+      }
+      btn.disabled = true; btn.textContent = 'Sending…';
+      fetch(form.action, { method:'POST', mode:'no-cors', body:new FormData(form) })
+        .then(function(){
+          form.outerHTML = '<p class="formdone">You’re on the list. We’ll be in touch the moment a spot opens.</p>';
+          if(note) note.textContent = 'Welcome to List Canopy early access.';
+        })
+        .catch(function(){
+          btn.disabled = false; btn.textContent = 'Request access';
+          note.textContent = "Something went wrong. Email hello@listcanopy.com and we’ll add you.";
+        });
+    });
+  })();
+</script>
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+</script>
+<script type="module">
+  import * as THREE from 'three';
+  const canvas = document.getElementById('net');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const renderer = new THREE.WebGLRenderer({canvas, alpha:true, antialias:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+  camera.position.set(0, 0, 9);
+  const group = new THREE.Group(); scene.add(group);
+
+  // a connected-node network: many shops (nodes) wired to a hub
+  const N = 64, pts = [];
+  for(let i=0;i<N;i++){
+    const r = 3.6*Math.cbrt(Math.random());
+    const theta = Math.random()*Math.PI*2, phi = Math.acos(2*Math.random()-1);
+    pts.push(new THREE.Vector3(r*Math.sin(phi)*Math.cos(theta), r*Math.sin(phi)*Math.sin(theta)*0.72, r*Math.cos(phi)*0.85));
+  }
+  pts[0].set(0,0,0); // the hub
+
+  const pgeo = new THREE.BufferGeometry().setFromPoints(pts);
+  const points = new THREE.Points(pgeo, new THREE.PointsMaterial({color:0x4F6BF6, size:0.13, transparent:true, opacity:0.9}));
+  group.add(points);
+
+  const seg = [], TH = 1.7;
+  for(let i=0;i<N;i++){
+    for(let j=i+1;j<N;j++){
+      if(pts[i].distanceTo(pts[j]) < TH){ seg.push(pts[i].x,pts[i].y,pts[i].z, pts[j].x,pts[j].y,pts[j].z); }
+    }
+    if(i>0 && pts[i].distanceTo(pts[0]) < 3.2 && (i % 3 === 0)){ seg.push(0,0,0, pts[i].x,pts[i].y,pts[i].z); }
+  }
+  const lgeo = new THREE.BufferGeometry();
+  lgeo.setAttribute('position', new THREE.Float32BufferAttribute(seg, 3));
+  const lines = new THREE.LineSegments(lgeo, new THREE.LineBasicMaterial({color:0x4F6BF6, transparent:true, opacity:0.16}));
+  group.add(lines);
+
+  let tx=0, ty=0, mx=0, my=0;
+  addEventListener('pointermove', e=>{ tx=(e.clientX/innerWidth-0.5); ty=(e.clientY/innerHeight-0.5); });
+  function resize(){ const w=canvas.clientWidth, h=canvas.clientHeight; renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix(); }
+  addEventListener('resize', resize); resize();
+
+  function loop(t){
+    mx += (tx-mx)*0.05; my += (ty-my)*0.05;
+    if(!reduce) group.rotation.y = t*0.00007 + mx*0.6;
+    group.rotation.x = -0.12 + my*0.4;
+    renderer.render(scene, camera);
+    requestAnimationFrame(loop);
+  }
+  if(reduce){ group.rotation.set(-0.12, 0.5, 0); renderer.render(scene, camera); } else requestAnimationFrame(loop);
+</script>
+</body>
+</html>
