@@ -4,13 +4,13 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>List Canopy: AI automation for operations and marketing</title>
-<meta name="description" content="List Canopy is an AI automation agency. We build the systems that run your internal operations and marketing (reporting, data entry, follow-ups, content and campaigns) inside the tools you already use." />
+<meta name="description" content="Most AI automation fails the same way: strong demo, no owner, abandoned by month four. We build operations and marketing automation for the part that comes after the demo. No call, no deck." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%235B7CFA'/%3E%3Cg fill='%23ffffff'%3E%3Ccircle cx='9' cy='9' r='2.4'/%3E%3Ccircle cx='23' cy='9' r='2.4'/%3E%3Ccircle cx='9' cy='23' r='2.4'/%3E%3Ccircle cx='23' cy='23' r='2.4'/%3E%3Ccircle cx='16' cy='16' r='2.8'/%3E%3C/g%3E%3Cg stroke='%23ffffff' stroke-width='1.4' opacity='.65'%3E%3Cline x1='9' y1='9' x2='16' y2='16'/%3E%3Cline x1='23' y1='9' x2='16' y2='16'/%3E%3Cline x1='9' y1='23' x2='16' y2='16'/%3E%3Cline x1='23' y1='23' x2='16' y2='16'/%3E%3C/g%3E%3C/svg%3E" />
 <link rel="canonical" href="https://listcanopy.com/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="List Canopy" />
 <meta property="og:title" content="List Canopy: AI automation for operations and marketing" />
-<meta property="og:description" content="We build the AI automation that runs your internal operations and marketing, inside the tools you already use. Your team stops doing the work software should be doing." />
+<meta property="og:description" content="Most AI automation fails the same way: strong demo, no owner, abandoned by month four. We build operations and marketing automation for the part that comes after the demo." />
 <meta property="og:url" content="https://listcanopy.com/" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="List Canopy: AI automation for operations and marketing" />
@@ -142,12 +142,20 @@
   .dark .eyebrow{color:var(--accent-lite)}
   .dark h2{color:#fff}
   .dark .sub{color:var(--dmuted)}
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:54px}
-  @media(max-width:860px){.steps{grid-template-columns:1fr}}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:30px;margin-top:54px}
+  @media(max-width:640px){.steps{grid-template-columns:1fr}}
   .step .n{font-family:var(--mono);font-size:13px;color:var(--accent-lite);border:1px solid rgba(255,255,255,.18);width:fit-content;padding:5px 11px;border-radius:7px;margin-bottom:14px}
-  .step h3{color:#fff;font-size:20px;margin-bottom:7px}
+  .step h3{color:#fff;font-size:19px;margin-bottom:7px}
   .step p{margin:0;color:var(--dmuted);font-size:15px}
-  .step .note{display:block;margin-top:10px;font-family:var(--mono);font-size:12px;color:#7C88A3}
+  .step .note{display:block;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.1);
+    font-family:var(--mono);font-size:11.5px;line-height:1.55;color:#7C88A3}
+  .step .note b{color:#B9C4DA;font-weight:500}
+
+  /* concrete "what changes" list */
+  .pace{max-width:640px;margin:40px auto 0;padding:0;list-style:none}
+  .pace li{position:relative;padding:13px 0 13px 30px;border-bottom:1px solid var(--line);font-size:16.5px;color:#39415A}
+  .pace li:last-child{border-bottom:none}
+  .pace li::before{content:"";position:absolute;left:4px;top:21px;width:8px;height:8px;border-radius:2px;background:var(--mint)}
 
   /* CONSOLE MOCKUP */
   .browser{margin:50px auto 0;max-width:980px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
@@ -219,10 +227,10 @@
   <div class="wrap"><nav>
     <div class="logo"><span class="mark"></span> List Canopy</div>
     <div class="navlinks">
+      <a class="hidemob" href="#why">Why these fail</a>
       <a class="hidemob" href="#services">What we automate</a>
       <a class="hidemob" href="#how">How we work</a>
-      <a class="hidemob" href="#faq">FAQ</a>
-      <a class="btn btn-ghost" href="#start">Get your automation map</a>
+      <a class="btn btn-ghost" href="#start">Where does my week go?</a>
     </div>
   </nav></div>
 </header>
@@ -231,14 +239,14 @@
   <canvas id="net" aria-hidden="true"></canvas>
   <div class="wrap"><div class="hero-grid">
     <div class="htext">
-      <span class="eyebrow">AI automation agency · operations &amp; marketing</span>
-      <h1>The repetitive half of your business, <em>run by AI</em>.</h1>
-      <p class="lead">We design and build AI automation for internal operations and marketing: the reporting, the data entry, the follow-ups, the content, the campaign admin. Your team spends its week on the work that actually needs a person.</p>
+      <span class="eyebrow">AI automation · operations &amp; marketing</span>
+      <h1>You've already said no to <em>three of these</em>.</h1>
+      <p class="lead">Fair. Most AI automation fails, and it fails the same way each time: strong demo, no owner, quietly abandoned by month four. We build for the part that comes after the demo.</p>
       <div class="cta">
-        <a class="btn btn-primary" href="#start">Get your automation map →</a>
-        <a class="btn btn-ghost" href="#services">See what we automate</a>
+        <a class="btn btn-primary" href="#start">Show me where my week goes →</a>
+        <a class="btn btn-ghost" href="#why">Why the last one failed</a>
       </div>
-      <div class="stamp">Built into your existing tools · No rip-and-replace · You own what we build</div>
+      <div class="stamp">No call. No deck. No "quick 15 minutes".</div>
     </div>
     <div>
       <div class="hspacer"></div>
@@ -260,44 +268,51 @@
   </div></div>
 </section>
 
-<section id="problem">
+<section id="why">
   <div class="wrap">
-    <div class="center"><span class="eyebrow">// the problem</span>
-      <h2>Your team's week is full of work no one should be doing</h2>
-      <p class="sub">Not the hard work. The work in between it: moving the same information between the same tools, over and over, because nobody ever had time to build the thing that would do it.</p>
+    <div class="center"><span class="eyebrow">// if you've tried this before</span>
+      <h2>You've watched this fail. Probably like this.</h2>
+      <p class="sub">MIT's Project NANDA put the share of enterprise AI pilots with no measurable profit impact at 95% in 2025. The figure is contested. The failure modes are not.</p>
     </div>
     <div class="cost">
-      <div class="c"><div class="k">operations</div><h3>Copying between systems</h3><p>Notes into the CRM. Invoices into the ledger. Orders into the spreadsheet. Every handoff is a person retyping something a machine already knows.</p></div>
-      <div class="c"><div class="k">marketing</div><h3>Starting from a blank page</h3><p>The same brief written five times. The content plan that slips because writing it takes a full day nobody has this week.</p></div>
-      <div class="c"><div class="k">reporting</div><h3>Numbers assembled by hand</h3><p>Half a day pulling a report that's already stale by the time anyone reads it, and no one trusts it enough to decide from.</p></div>
+      <div class="c"><div class="k">week one</div><h3>It demoed beautifully</h3><p>These tools reach 80% in an afternoon. The last 20% is edge cases, malformed records and the exceptions your team handles on instinct. Demos don't show the last 20%.</p></div>
+      <div class="c"><div class="k">month three</div><h3>Then the person who built it left</h3><p>It ran until it didn't. The one person who understood it was a contractor. Now nobody will touch it and nobody will switch it off.</p></div>
+      <div class="c"><div class="k">month four</div><h3>Nobody was using it</h3><p>One published rollout: 80% still using it at 30 days, 40% at 60, 11% at four months. Then cancelled. Deployment is not adoption.</p></div>
     </div>
-    <p class="turn">It doesn't feel expensive, because it's spread across everyone. <b>That's exactly why it never gets fixed</b>, and why it's the cheapest thing in your business to automate.</p>
+    <p class="turn">None of that is an AI problem. It's scoping, ownership and maintenance. <b>Unglamorous, and most of the actual job.</b></p>
   </div>
 </section>
 
 <section id="services">
   <div class="wrap">
-    <div class="center"><span class="eyebrow">// what we build</span>
-      <h2>Automation where the hours actually go</h2>
-      <p class="sub">We don't sell you a platform. We build working systems inside the tools you already run, and we build the ones that pay for themselves first.</p>
+    <div class="center"><span class="eyebrow">// what we automate</span>
+      <h2>Named specifically, not called "operational efficiency"</h2>
+      <p class="sub">You should recognise your own week in this list. If none of it lands, we're not the right people.</p>
     </div>
     <div class="grid">
-      <div class="card"><div class="lab">01 / operations</div><h3>Back-office automation</h3><p>Data entry, CRM hygiene, invoice chasing, client onboarding, approvals and internal handoffs, all wired together so information moves without a person moving it.</p><span class="out">Your team stops being the integration layer.</span></div>
-      <div class="card"><div class="lab">02 / content</div><h3>Content generation at volume</h3><p>Blog, email, social, product and sales copy generated on your brand voice, from your own material. Drafted in minutes, reviewed by a human before anything ships.</p><span class="out">A month of content in an afternoon.</span></div>
-      <div class="card"><div class="lab">03 / marketing</div><h3>Strategy and campaign ops</h3><p>Market and competitor research, positioning, campaign briefs, and the unglamorous build-and-schedule work behind every launch.</p><span class="out">Campaigns that ship on the date you planned.</span></div>
-      <div class="card"><div class="lab">04 / agents</div><h3>Custom AI agents</h3><p>Agents that work inside your business: triaging the shared inbox, qualifying inbound leads, answering from your own documentation, flagging what a human needs to see.</p><span class="out">The first pass is handled before you open it.</span></div>
-      <div class="card"><div class="lab">05 / reporting</div><h3>Reporting that builds itself</h3><p>Your numbers pulled, reconciled and written up on a schedule, with the commentary drafted, not just the chart.</p><span class="out">Decisions from current numbers, not last month's.</span></div>
-      <div class="card"><div class="lab">06 / integration</div><h3>Your stack, connected</h3><p>We work with what you have: your CRM, your sheets, your inbox, your project tool. Nothing gets ripped out, and nothing is locked to us.</p><span class="out">No migration project. No new logins.</span></div>
+      <div class="card"><div class="lab">01 / operations</div><h3>The back office</h3><p>Call notes that never reach the CRM. Invoices chased by hand every Friday. Onboarding checklists retyped. Approvals sitting three days in an inbox because nobody nudged them.</p><span class="out">Handoffs stop depending on someone remembering.</span></div>
+      <div class="card"><div class="lab">02 / content</div><h3>The content that keeps slipping</h3><p>The post that has been "going out this week" for two months. Copy for 40 SKUs. The newsletter that dies whenever anything else catches fire. Drafted from your material, in your voice, reviewed before it ships.</p><span class="out">The content calendar stops being fiction.</span></div>
+      <div class="card"><div class="lab">03 / marketing</div><h3>The campaign grind</h3><p>Competitor checks nobody has time for. Briefs written from scratch every time. The build-and-schedule slog, and the reporting nobody volunteers for.</p><span class="out">It ships on the date you said.</span></div>
+      <div class="card"><div class="lab">04 / agents</div><h3>The first pass</h3><p>Shared inbox triaged. Inbound leads qualified. The same six questions answered from your own documentation. Ambiguous cases flagged, not guessed.</p><span class="out">You open the inbox already sorted.</span></div>
+      <div class="card"><div class="lab">05 / reporting</div><h3>The Monday report</h3><p>Numbers pulled, reconciled and written up on schedule, including the paragraph explaining the dip. Not just the chart.</p><span class="out">Monday's report exists before Monday.</span></div>
+      <div class="card"><div class="lab">06 / integration</div><h3>Whatever you already pay for</h3><p>Your CRM, your sheets, your inbox, your project tool. We build inside them. We won't tell you to migrate platforms first.</p><span class="out">No migration. No new logins.</span></div>
     </div>
   </div>
 </section>
 
 <section id="inside">
   <div class="wrap">
-    <div class="center"><span class="eyebrow">// a look inside</span>
-      <h2>Every automation visible, and every one switch-off-able</h2>
-      <p class="sub">You get a plain view of what is running, what it touched, and what it needs a human to look at. Automation you can't see is automation you can't trust.</p>
+    <div class="center"><span class="eyebrow">// about six weeks in</span>
+      <h2>What changes, concretely</h2>
+      <p class="sub">Not a transformation. A normal week with the repetitive parts removed.</p>
     </div>
+    <ul class="pace">
+      <li>The weekly report is written before anyone asks for it.</li>
+      <li>Friday's overdue invoices were chased. Nobody decided to chase them.</li>
+      <li>The support inbox arrives sorted into "needs you" and "handled".</li>
+      <li>Six posts are drafted and waiting on a yes or no.</li>
+      <li>You can see what ran, what it touched, and switch any of it off yourself.</li>
+    </ul>
     <div class="browser" role="img" aria-label="Illustration of an automation console listing workflows by department, showing live, needs-review and building statuses alongside hours saved per week">
       <div class="bbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><div class="url">your automation console</div></div>
       <div class="app">
@@ -329,13 +344,14 @@
 
 <section id="how" class="dark">
   <div class="wrap">
-    <div class="center"><span class="eyebrow">// how we work</span><h2>Map it, build it, run it</h2>
-      <p class="sub">No six-month transformation programme. We find the expensive repetition first and automate that, then keep going.</p>
+    <div class="center"><span class="eyebrow">// how we work</span><h2>Built so it survives us leaving</h2>
+      <p class="sub">Each step exists because of one specific way this work fails. That is the whole method.</p>
     </div>
     <div class="steps">
-      <div class="step"><div class="n">step 01</div><h3>Map</h3><p>We sit with your team and log the work that repeats: what it is, who does it, how long it takes and what it costs you a month. You get that map whether or not you hire us.</p><span class="note">output: a costed list of what can be automated</span></div>
-      <div class="step"><div class="n">step 02</div><h3>Build</h3><p>We build the highest-value automations first, inside your existing tools, in short cycles. You see working systems early, not a deck.</p><span class="note">output: working automations, documented</span></div>
-      <div class="step"><div class="n">step 03</div><h3>Run</h3><p>We monitor what's live, fix what drifts, and extend as your process changes. Your team is trained on it, and everything we build is yours to keep.</p><span class="note">output: systems you own, supported</span></div>
+      <div class="step"><div class="n">step 01</div><h3>Watch the week</h3><p>We log what repeats and what it costs per month. Not what would sound impressive in a board update. You keep the map either way.</p><span class="note"><b>fixes:</b> starting from "what can we use AI for?"</span></div>
+      <div class="step"><div class="n">step 02</div><h3>Build the last 20% first</h3><p>Anyone can get a workflow 80% working. We start at the exceptions. If those can't be handled, we tell you it isn't worth automating yet.</p><span class="note"><b>fixes:</b> the demo that died in production</span></div>
+      <div class="step"><div class="n">step 03</div><h3>Hand over the keys</h3><p>Documented, running in your accounts, your team trained. You can change it or switch it off without calling us.</p><span class="note"><b>fixes:</b> the black box nobody can maintain</span></div>
+      <div class="step"><div class="n">step 04</div><h3>Check it's still used</h3><p>We review adoption at month one and month three, which is when these quietly die. If it isn't being used, we fix it or kill it.</p><span class="note"><b>fixes:</b> 11% adoption, found out too late</span></div>
     </div>
   </div>
 </section>
@@ -343,32 +359,32 @@
 <section id="faq">
   <div class="wrap">
     <div class="center"><span class="eyebrow">// straight answers</span>
-      <h2>The questions everyone asks first</h2>
+      <h2>The things you're actually thinking</h2>
     </div>
     <div class="qa">
       <details open>
-        <summary>We're a small team. Is this only for big companies?</summary>
-        <p class="a">It's the opposite. A large company can absorb repetitive admin by hiring; a lean team can't. The smaller the team, the more of its week is spent on work that doesn't need a person, which is exactly the work we take off it.</p>
+        <summary>"Our data is a mess. Are we too disorganised for this?"</summary>
+        <p class="a">Everyone's is. Files on shared drives, three spreadsheets that disagree, a CRM half the team ignores. That is the normal starting condition, and the mapping step exists partly to find out how bad it is before you commit money. Sometimes the honest answer is that a process needs tidying before automating it is worth anything, and we will say so.</p>
       </details>
       <details>
-        <summary>Do we have to replace the tools we already use?</summary>
-        <p class="a">No. We build into your current stack: your CRM, your spreadsheets, your inbox, your project tool. A migration is a cost with no upside for you, and it's the fastest way to make a project fail. If something genuinely can't be automated where it is, we'll tell you before you spend anything.</p>
+        <summary>"What if it invents something on an invoice?"</summary>
+        <p class="a">Financial and customer-facing steps do not run unattended. AI drafts, a person approves, the system logs what it did. Anyone offering fully hands-off finance automation is selling you the risk along with it.</p>
       </details>
       <details>
-        <summary>What happens to our data?</summary>
-        <p class="a">It stays in your systems, under your accounts. We work with the minimum access needed to build and run each automation, and that access is yours to revoke at any point. We'll write down exactly what each workflow reads and writes before it goes live.</p>
+        <summary>"What happens when you leave?"</summary>
+        <p class="a">The one we get asked most, because it is what went wrong last time. Everything is built in your accounts, documented, and handed over with your team trained on it. No proprietary layer of ours in the middle. If we disappeared tomorrow, the workflows keep running and someone else can pick them up.</p>
       </details>
       <details>
-        <summary>What if the AI gets something wrong?</summary>
-        <p class="a">Assume it will, occasionally, so we design for it. Anything customer-facing or financial goes to a person for approval before it lands. Everything else logs what it did, so a mistake is visible and reversible instead of silent. And any workflow can be switched off without breaking the ones around it.</p>
+        <summary>"Isn't this just ChatGPT with extra steps?"</summary>
+        <p class="a">Partly, yes. The models are a commodity and you can already use them. What you are paying for is knowing which processes are worth pointing them at, handling the 20% of cases that break naive automation, and the thing still working in six months.</p>
       </details>
       <details>
-        <summary>Will this replace people on our team?</summary>
-        <p class="a">Most of our clients aren't trying to cut headcount. They're trying to stop paying skilled people to retype things. The usual outcome is that the same team handles more without the week disappearing into admin. If you are looking to reduce headcount, that's a decision for you to make; it isn't the case we make for the work.</p>
+        <summary>"We're small. Is it worth it for us?"</summary>
+        <p class="a">Small is where it bites hardest. A large company absorbs repetitive admin by hiring someone to do it. You absorb it personally, in the evening. And no, the aim is not to cut headcount: it is to stop paying skilled people to retype things.</p>
       </details>
       <details>
-        <summary>How is it priced, and how soon does something work?</summary>
-        <p class="a">We scope and price each build up front against the hours it's replacing, so you can see what it's worth before you commit. No open-ended retainers to find out. The mapping step comes first and is deliberately small, because neither of us can price the work honestly until we've seen where your time actually goes.</p>
+        <summary>"Do I have to get on a call? And what does it cost?"</summary>
+        <p class="a">No call. Send an email address and the map comes back in writing. Talk to us afterwards only if it is useful. Builds are priced against the hours they replace and quoted before you commit, so there is no open-ended retainer to find out. If the maths doesn't work, we would rather tell you than sell you one.</p>
       </details>
     </div>
   </div>
@@ -377,14 +393,14 @@
 <section id="start">
   <div class="wrap"><div class="band">
     <span class="eyebrow" style="color:#e2e8ff">// start here</span>
-    <h2 style="font-size:clamp(28px,4vw,42px)">Tell us where your week goes</h2>
-    <p>Send us your email and we'll come back with a short automation map for your business: the repeatable work we'd take off your team first, and what it's costing you now.</p>
+    <h2 style="font-size:clamp(28px,4vw,42px)">Find out where your week is going</h2>
+    <p>Send an email address. You get back, in writing, the repeatable work we would take off your team first and what it currently costs you. No call, no deck, no calendar link.</p>
     <form id="waitlist" class="waitlist" action="REPLACE_WITH_APPS_SCRIPT_URL" method="POST">
       <input type="hidden" name="source" value="listcanopy.com" />
       <input type="email" name="email" required autocomplete="email" placeholder="you@yourcompany.com" aria-label="Your work email address" />
-      <button type="submit" class="btn">Get my automation map</button>
+      <button type="submit" class="btn">Send me the map</button>
     </form>
-    <p class="formnote" id="formnote" aria-live="polite">No cost, no pitch deck. Just where the hours are going.</p>
+    <p class="formnote" id="formnote" aria-live="polite">If it isn't useful, you've lost an email address.</p>
   </div></div>
 </section>
 
